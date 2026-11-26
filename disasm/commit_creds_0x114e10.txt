@@ -1,0 +1,78 @@
+# Evidence: task_struct.real_cred=0x7f8, cred=0x800
+# (ldr x19,[x21,#0x7f8]; ldr x8,[x21,#0x800] in prologue).
+
+# commit_creds @ 0xffffffc010114e10 (kernel-5.10.43, HarmonyOS 4.2.0.125, OXF-AN00)
+# vmlinux-to-elf base guess: 0xffffffc010000000; addresses are image-relative + base
+
+0xffffffc010114e10  fd7bbda9       stp x29, x30, [sp, #-0x30]!
+0xffffffc010114e14  f50b00f9       str x21, [sp, #0x10]
+0xffffffc010114e18  f44f02a9       stp x20, x19, [sp, #0x20]
+0xffffffc010114e1c  fd030091       mov x29, sp
+0xffffffc010114e20  154138d5       mrs x21, sp_el0
+0xffffffc010114e24  b3fe43f9       ldr x19, [x21, #0x7f8]
+0xffffffc010114e28  a80244f9       ldr x8, [x21, #0x800]
+0xffffffc010114e2c  1f0113eb       cmp x8, x19
+0xffffffc010114e30  a11c0054       b.ne #0xffffffc0101151c4
+0xffffffc010114e34  f40300aa       mov x20, x0
+0xffffffc010114e38  08fcdf88       ldar w8, [x0]
+0xffffffc010114e3c  1f010071       cmp w8, #0
+0xffffffc010114e40  4d1c0054       b.le #0xffffffc0101151c8
+0xffffffc010114e44  f40000b4       cbz x20, #0xffffffc010114e60
+0xffffffc010114e48  9f9a00b9       str wzr, [x20, #0x98]
+0xffffffc010114e4c  910280f9       prfm pstl1strm, [x20]
+0xffffffc010114e50  887e5f88       ldxr w8, [x20]
+0xffffffc010114e54  08050011       add w8, w8, #1
+0xffffffc010114e58  887e0988       stxr w9, w8, [x20]
+0xffffffc010114e5c  a9ffff35       cbnz w9, #0xffffffc010114e50
+0xffffffc010114e60  681640b9       ldr w8, [x19, #0x14]
+0xffffffc010114e64  891640b9       ldr w9, [x20, #0x14]
+0xffffffc010114e68  1f01096b       cmp w8, w9
+0xffffffc010114e6c  c1040054       b.ne #0xffffffc010114f04
+0xffffffc010114e70  691a40b9       ldr w9, [x19, #0x18]
+0xffffffc010114e74  8a1a40b9       ldr w10, [x20, #0x18]
+0xffffffc010114e78  3f010a6b       cmp w9, w10
+0xffffffc010114e7c  41040054       b.ne #0xffffffc010114f04
+0xffffffc010114e80  691e40b9       ldr w9, [x19, #0x1c]
+0xffffffc010114e84  8a1e40b9       ldr w10, [x20, #0x1c]
+0xffffffc010114e88  3f010a6b       cmp w9, w10
+0xffffffc010114e8c  c1030054       b.ne #0xffffffc010114f04
+0xffffffc010114e90  692240b9       ldr w9, [x19, #0x20]
+0xffffffc010114e94  8a2240b9       ldr w10, [x20, #0x20]
+0xffffffc010114e98  3f010a6b       cmp w9, w10
+0xffffffc010114e9c  41030054       b.ne #0xffffffc010114f04
+0xffffffc010114ea0  694640f9       ldr x9, [x19, #0x88]
+0xffffffc010114ea4  8b4640f9       ldr x11, [x20, #0x88]
+0xffffffc010114ea8  3f010beb       cmp x9, x11
+0xffffffc010114eac  00020054       b.eq #0xffffffc010114eec
+0xffffffc010114eb0  6a9c01f0       adrp x10, #0xffffffc0134a3000
+0xffffffc010114eb4  4aa10b91       add x10, x10, #0x2e8
+0xffffffc010114eb8  7f010aeb       cmp x11, x10
+0xffffffc010114ebc  a1000054       b.ne #0xffffffc010114ed0
+0xffffffc010114ec0  11000014       b #0xffffffc010114f04
+0xffffffc010114ec4  9f010aeb       cmp x12, x10
+0xffffffc010114ec8  eb030caa       mov x11, x12
+0xffffffc010114ecc  c0010054       b.eq #0xffffffc010114f04
+0xffffffc010114ed0  6c7140f9       ldr x12, [x11, #0xe0]
+0xffffffc010114ed4  3f010ceb       cmp x9, x12
+0xffffffc010114ed8  61ffff54       b.ne #0xffffffc010114ec4
+0xffffffc010114edc  6bed40b9       ldr w11, [x11, #0xec]
+0xffffffc010114ee0  7f01086b       cmp w11, w8
+0xffffffc010114ee4  01ffff54       b.ne #0xffffffc010114ec4
+0xffffffc010114ee8  3a000014       b #0xffffffc010114fd0
+0xffffffc010114eec  881a40f9       ldr x8, [x20, #0x30]
+0xffffffc010114ef0  691a40f9       ldr x9, [x19, #0x30]
+0xffffffc010114ef4  0801298a       bic x8, x8, x9
+0xffffffc010114ef8  09fd60d3       lsr x9, x8, #0x20
+0xffffffc010114efc  490000b5       cbnz x9, #0xffffffc010114f04
+0xffffffc010114f00  88060034       cbz w8, #0xffffffc010114fd0
+0xffffffc010114f04  a9c642f9       ldr x9, [x21, #0x588]
+0xffffffc010114f08  490200b4       cbz x9, #0xffffffc010114f50
+0xffffffc010114f0c  48e701b0       adrp x8, #0xffffffc013dfd000
+0xffffffc010114f10  08514fb9       ldr w8, [x8, #0xf50]
+0xffffffc010114f14  1f0d0071       cmp w8, #3
+0xffffffc010114f18  e2130054       b.hs #0xffffffc010115194
+0xffffffc010114f1c  29410c91       add x9, x9, #0x310
+0xffffffc010114f20  2afddfc8       ldar x10, [x9]
+0xffffffc010114f24  4bf57e92       and x11, x10, #0xfffffffffffffffc
+0xffffffc010114f28  6b0108aa       orr x11, x11, x8
+0xffffffc010114f2c  310180f9       prfm pstl1strm, [x9]

@@ -1,0 +1,23 @@
+# Evidence: init_task static data (image offset 0x34947c0)
+# real_cred/cred @0x7f8/0x800 -> init_cred 0xffffffc0134a46a0 (matches P40)
+# tasks list head @0x538 (self-referential)
+# restart_block.fn @0x610 (kernel text ptr) => atomic_flags @0x608
+# comm string "swapper" @0x810 => task_struct.comm=0x810 (0x808 = cached_requested_key)
+
+init_task+0x04c8 (=0xffffffc013494c88): qword=0xffffffc013494c80  bytes=b'\x80LI\x13\xc0\xff\xff\xff\x00\x00\x00\x00\x00\x00\x00\x00'
+init_task+0x0538 (=0xffffffc013494cf8): qword=0xffffffc013494cf8  bytes=b'\xf8LI\x13\xc0\xff\xff\xff\xf8LI\x13\xc0\xff\xff\xff'
+init_task+0x0540 (=0xffffffc013494d00): qword=0xffffffc013494cf8  bytes=b'\xf8LI\x13\xc0\xff\xff\xff\x8c\x00\x00\x00\x00\x00\x00\x00'
+init_task+0x0590 (=0xffffffc013494d50): qword=0xffffffc013857240  bytes=b'@r\x85\x13\xc0\xff\xff\xff\x00\x00\x00\x00\x00\x00\x00\x00'
+init_task+0x05f0 (=0xffffffc013494db0): qword=0x0000000000000000  bytes=b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+init_task+0x0600 (=0xffffffc013494dc0): qword=0x0000000000000000  bytes=b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+init_task+0x0608 (=0xffffffc013494dc8): qword=0x0000000000000000  bytes=b"\x00\x00\x00\x00\x00\x00\x00\x00\x0c'@\x12\xc0\xff\xff\xff"
+init_task+0x0610 (=0xffffffc013494dd0): qword=0xffffffc01240270c  bytes=b"\x0c'@\x12\xc0\xff\xff\xff\x00\x00\x00\x00\x00\x00\x00\x00"
+init_task+0x0640 (=0xffffffc013494e00): qword=0x0000000000000000  bytes=b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+init_task+0x0644 (=0xffffffc013494e04): qword=0x0000000000000000  bytes=b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xc0GI\x13'
+init_task+0x07f8 (=0xffffffc013494fb8): qword=0xffffffc0134a46a0  bytes=b'\xa0FJ\x13\xc0\xff\xff\xff\xa0FJ\x13\xc0\xff\xff\xff'
+init_task+0x0800 (=0xffffffc013494fc0): qword=0xffffffc0134a46a0  bytes=b'\xa0FJ\x13\xc0\xff\xff\xff\x00\x00\x00\x00\x00\x00\x00\x00'
+init_task+0x0808 (=0xffffffc013494fc8): qword=0x0000000000000000  bytes=b'\x00\x00\x00\x00\x00\x00\x00\x00swapper\x00'
+init_task+0x0810 (=0xffffffc013494fd0): qword=0x0072657070617773  bytes=b'swapper\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+init_task+0x0848 (=0xffffffc013495008): qword=0xffffffc013495b28  bytes=b'([I\x13\xc0\xff\xff\xff\x00\x00\x00\x00\x00\x00\x00\x00'
+init_task+0x08b0 (=0xffffffc013495070): qword=0x0000000000000000  bytes=b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+init_task+0x08d4 (=0xffffffc013495094): qword=0x0000000000000000  bytes=b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
