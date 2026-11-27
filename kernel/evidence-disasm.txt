@@ -1,0 +1,204 @@
+
+===== remove_waiter (0xffffffc01019d860) pi_lock/pi_waiters/pi_blocked_on =====
+0xffffffc01019d860  stp      x29, x30, [sp, #-0x40]!
+0xffffffc01019d864  stp      x24, x23, [sp, #0x10]
+0xffffffc01019d868  stp      x22, x21, [sp, #0x20]
+0xffffffc01019d86c  stp      x20, x19, [sp, #0x30]
+0xffffffc01019d870  mov      x29, sp
+0xffffffc01019d874  ldr      x22, [x0, #0x10]
+0xffffffc01019d878  mov      x20, x0
+0xffffffc01019d87c  mov      x23, x1
+0xffffffc01019d880  cbz      x22, #0xffffffc01019d890
+0xffffffc01019d884  ldr      x8, [x22, #0x38]
+0xffffffc01019d888  cmp      x8, x20
+0xffffffc01019d88c  b.ne     #0xffffffc01019de34
+0xffffffc01019d890  add      x9, x20, #0x18
+0xffffffc01019d894  mrs      x19, sp_el0
+0xffffffc01019d898  ldar     x24, [x9]
+0xffffffc01019d89c  add      x9, x19, #0x10
+0xffffffc01019d8a0  ldar     w9, [x9]
+0xffffffc01019d8a4  add      w9, w9, #1
+0xffffffc01019d8a8  str      w9, [x19, #0x10]
+0xffffffc01019d8ac  mov      x8, xzr
+0xffffffc01019d8b0  add      x21, x19, #0x8d4
+0xffffffc01019d8b4  mov      w9, #1
+0xffffffc01019d8b8  prfm     pstl1strm, [x21]
+0xffffffc01019d8bc  ldaxr    w1, [x21]
+0xffffffc01019d8c0  eor      w10, w1, w8
+0xffffffc01019d8c4  cbnz     w10, #0xffffffc01019d8d0
+0xffffffc01019d8c8  stxr     w10, w9, [x21]
+0xffffffc01019d8cc  cbnz     w10, #0xffffffc01019d8bc
+0xffffffc01019d8d0  cbnz     w1, #0xffffffc01019dcf0
+0xffffffc01019d8d4  ldr      x8, [x23]
+0xffffffc01019d8d8  cmp      x8, x23
+0xffffffc01019d8dc  b.eq     #0xffffffc01019d914
+0xffffffc01019d8e0  ldr      x9, [x20, #0x10]
+0xffffffc01019d8e4  cmp      x9, x23
+0xffffffc01019d8e8  b.ne     #0xffffffc01019d904
+0xffffffc01019d8ec  ldr      x9, [x23, #8]
+0xffffffc01019d8f0  cbz      x9, #0xffffffc01019dc54
+0xffffffc01019d8f4  mov      x8, x9
+0xffffffc01019d8f8  ldr      x9, [x9, #0x10]
+0xffffffc01019d8fc  cbnz     x9, #0xffffffc01019d8f4
+0xffffffc01019d900  str      x8, [x20, #0x10]
+0xffffffc01019d904  add      x1, x20, #8
+0xffffffc01019d908  mov      x0, x23
+0xffffffc01019d90c  bl       #0xffffffc010a0b574
+0xffffffc01019d910  str      x23, [x23]
+0xffffffc01019d914  str      xzr, [x19, #0x900]
+0xffffffc01019d918  mov      w8, wzr
+0xffffffc01019d91c  stlrb    w8, [x21]
+0xffffffc01019d920  add      x8, x19, #0x10
+0xffffffc01019d924  ldar     x9, [x8]
+0xffffffc01019d928  subs     x9, x9, #1
+0xffffffc01019d92c  str      w9, [x19, #0x10]
+0xffffffc01019d930  b.eq     #0xffffffc01019dcac
+0xffffffc01019d934  ldar     x9, [x8]
+0xffffffc01019d938  cbz      x9, #0xffffffc01019dcac
+0xffffffc01019d93c  cmp      x22, x23
+0xffffffc01019d940  b.ne     #0xffffffc01019dc40
+0xffffffc01019d944  and      x21, x24, #0xfffffffffffffffe
+0xffffffc01019d948  cbz      x21, #0xffffffc01019dc40
+0xffffffc01019d94c  add      x9, x19, #0x10
+0xffffffc01019d950  ldar     w9, [x9]
+0xffffffc01019d954  add      w9, w9, #1
+0xffffffc01019d958  str      w9, [x19, #0x10]
+0xffffffc01019d95c  mov      x8, xzr
+0xffffffc01019d960  add      x22, x21, #0x8d4
+0xffffffc01019d964  mov      w9, #1
+0xffffffc01019d968  prfm     pstl1strm, [x22]
+0xffffffc01019d96c  ldaxr    w1, [x22]
+0xffffffc01019d970  eor      w10, w1, w8
+0xffffffc01019d974  cbnz     w10, #0xffffffc01019d980
+0xffffffc01019d978  stxr     w10, w9, [x22]
+0xffffffc01019d97c  cbnz     w10, #0xffffffc01019d96c
+0xffffffc01019d980  cbnz     w1, #0xffffffc01019dd40
+0xffffffc01019d984  mov      x24, x23
+0xffffffc01019d988  ldr      x8, [x24, #0x18]!
+0xffffffc01019d98c  cmp      x8, x24
+0xffffffc01019d990  b.eq     #0xffffffc01019d9c8
+0xffffffc01019d994  ldr      x9, [x21, #0x8f0]
+0xffffffc01019d998  cmp      x9, x24
+0xffffffc01019d99c  b.ne     #0xffffffc01019d9b8
+
+===== __secure_computing (0xffffffc010287b64) seccomp @ current+0x8b0 =====
+0xffffffc010287b64  stp      x29, x30, [sp, #-0x10]!
+0xffffffc010287b68  mov      x29, sp
+0xffffffc010287b6c  mrs      x8, sp_el0
+0xffffffc010287b70  ldr      w9, [x8, #0x8b0]
+0xffffffc010287b74  mov      x1, x0
+0xffffffc010287b78  cbz      x0, #0xffffffc010287b84
+0xffffffc010287b7c  mov      x10, x1
+0xffffffc010287b80  b        #0xffffffc010287b90
+0xffffffc010287b84  ldr      x10, [x8, #0x20]
+0xffffffc010287b88  mov      w11, #0x3fc8
+0xffffffc010287b8c  add      x10, x10, x11
+0xffffffc010287b90  ldrsw    x0, [x10]
+0xffffffc010287b94  cmp      w9, #2
+0xffffffc010287b98  b.ne     #0xffffffc010287bac
+0xffffffc010287b9c  mov      w2, wzr
+0xffffffc010287ba0  bl       #0xffffffc010287ca4
+0xffffffc010287ba4  ldp      x29, x30, [sp], #0x10
+0xffffffc010287ba8  ret      
+0xffffffc010287bac  cmp      w9, #1
+0xffffffc010287bb0  b.ne     #0xffffffc010287c00
+0xffffffc010287bb4  ldr      x8, [x8]
+0xffffffc010287bb8  adrp     x9, #0xffffffc012e24000
+0xffffffc010287bbc  adrp     x10, #0xffffffc012e24000
+0xffffffc010287bc0  add      x9, x9, #0x3ac
+
+===== cred_init (0xffffffc0130da630) kmem_cache_create("cred_jar", 0xa8) =====
+0xffffffc0130da630  stp      x29, x30, [sp, #-0x10]!
+0xffffffc0130da634  mov      x29, sp
+0xffffffc0130da638  adrp     x0, #0xffffffc012a53000
+0xffffffc0130da63c  mov      w3, #0x2000
+0xffffffc0130da640  add      x0, x0, #0x677
+0xffffffc0130da644  mov      w1, #0xa8
+0xffffffc0130da648  movk     w3, #4, lsl #16
+0xffffffc0130da64c  mov      w2, wzr
+0xffffffc0130da650  mov      w4, wzr
+0xffffffc0130da654  mov      w5, wzr
+0xffffffc0130da658  mov      x6, xzr
+0xffffffc0130da65c  bl       #0xffffffc0103c1fcc
+0xffffffc0130da660  adrp     x8, #0xffffffc013c84000
+0xffffffc0130da664  str      x0, [x8, #0x6d0]
+0xffffffc0130da668  ldp      x29, x30, [sp], #0x10
+0xffffffc0130da66c  ret      
+
+===== selinux_init (0xffffffc0130f3bc4) memset 0x78 + checkreqprot at +0 =====
+0xffffffc0130f3bc4  stp      x29, x30, [sp, #-0x20]!
+0xffffffc0130f3bc8  stp      x20, x19, [sp, #0x10]
+0xffffffc0130f3bcc  mov      x29, sp
+0xffffffc0130f3bd0  adrp     x0, #0xffffffc012db8000
+0xffffffc0130f3bd4  add      x0, x0, #0xfe1
+0xffffffc0130f3bd8  bl       #0xffffffc0101aa568
+0xffffffc0130f3bdc  adrp     x19, #0xffffffc013e13000
+0xffffffc0130f3be0  add      x19, x19, #0xac8
+0xffffffc0130f3be4  mov      w2, #0x78
+0xffffffc0130f3be8  mov      x0, x19
+0xffffffc0130f3bec  mov      w1, wzr
+0xffffffc0130f3bf0  bl       #0xffffffc01000d3c0
+0xffffffc0130f3bf4  mov      x0, x19
+0xffffffc0130f3bf8  bl       #0xffffffc0130f3d00
+0xffffffc0130f3bfc  adrp     x8, #0xffffffc013e13000
+0xffffffc0130f3c00  ldr      w8, [x8, #0xac4]
+0xffffffc0130f3c04  adrp     x20, #0xffffffc013e12000
+0xffffffc0130f3c08  add      x20, x20, #0x280
+0xffffffc0130f3c0c  mov      w9, #0x200
+0xffffffc0130f3c10  cmp      w8, #0
+0xffffffc0130f3c14  cset     w8, ne
+0xffffffc0130f3c18  add      x0, x20, #8
+0xffffffc0130f3c1c  mov      w2, #0x1800
+0xffffffc0130f3c20  mov      w1, wzr
+0xffffffc0130f3c24  strb     w8, [x19]
+0xffffffc0130f3c28  str      w9, [x20]
+0xffffffc0130f3c2c  bl       #0xffffffc01000d3c0
+0xffffffc0130f3c30  add      x8, x19, #0x38
+0xffffffc0130f3c34  add      x9, x19, #0x68
+0xffffffc0130f3c38  str      wzr, [x20, #0x180c]
+0xffffffc0130f3c3c  str      wzr, [x20, #0x1808]
+0xffffffc0130f3c40  str      xzr, [x19, #0x28]
+0xffffffc0130f3c44  str      wzr, [x19, #0x30]
+0xffffffc0130f3c48  str      x8, [x19, #0x38]
+0xffffffc0130f3c4c  stp      x8, x20, [x19, #0x40]
+0xffffffc0130f3c50  str      wzr, [x19, #0x34]
+0xffffffc0130f3c54  str      xzr, [x19, #0x58]
+0xffffffc0130f3c58  str      wzr, [x19, #0x60]
+0xffffffc0130f3c5c  str      x9, [x19, #0x68]
+0xffffffc0130f3c60  str      x9, [x19, #0x70]
+0xffffffc0130f3c64  str      wzr, [x19, #0x64]
+0xffffffc0130f3c68  mrs      x10, sp_el0
+0xffffffc0130f3c6c  ldr      x8, [x10, #0x7f8]
+0xffffffc0130f3c70  adrp     x9, #0xffffffc012621000
+
+===== sel_read_enforce (0xffffffc0108f1a50) snprintf("%d", 1) =====
+0xffffffc0108f1a50  sub      sp, sp, #0x50
+0xffffffc0108f1a54  stp      x29, x30, [sp, #0x20]
+0xffffffc0108f1a58  str      x21, [sp, #0x30]
+0xffffffc0108f1a5c  stp      x20, x19, [sp, #0x40]
+0xffffffc0108f1a60  add      x29, sp, #0x20
+0xffffffc0108f1a64  adrp     x8, #0xffffffc013482000
+0xffffffc0108f1a68  ldr      x8, [x8, #0xd48]
+0xffffffc0108f1a6c  mov      x20, x2
+0xffffffc0108f1a70  adrp     x2, #0xffffffc012a10000
+0xffffffc0108f1a74  mov      x19, x3
+0xffffffc0108f1a78  mov      x21, x1
+0xffffffc0108f1a7c  add      x2, x2, #0x5c0
+0xffffffc0108f1a80  add      x0, sp, #0xc
+0xffffffc0108f1a84  mov      w1, #0xc
+0xffffffc0108f1a88  mov      w3, #1
+0xffffffc0108f1a8c  stur     x8, [x29, #-8]
+0xffffffc0108f1a90  bl       #0xffffffc010a16ba4
+0xffffffc0108f1a94  sxtw     x4, w0
+0xffffffc0108f1a98  add      x3, sp, #0xc
+0xffffffc0108f1a9c  mov      x0, x21
+0xffffffc0108f1aa0  mov      x1, x20
+0xffffffc0108f1aa4  mov      x2, x19
+0xffffffc0108f1aa8  bl       #0xffffffc0104c0ee4
+0xffffffc0108f1aac  adrp     x9, #0xffffffc013482000
+
+===== get_selinux_enforcing (0xffffffc01091181c) mov w0,#1; ret =====
+0xffffffc01091181c  mov      w0, #1
+0xffffffc010911820  ret      
+0xffffffc010911824  stp      x29, x30, [sp, #-0x50]!
+0xffffffc010911828  str      x28, [sp, #0x10]
