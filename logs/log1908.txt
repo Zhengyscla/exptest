@@ -1,3 +1,5 @@
+# 由于GhostLock APP不会同步写入日志，即使写入了在内核panic后也会有损坏，这是手机录像提取文字得出panic前最后的输出
+
 [*] [spray] mm spray + kernelsnitch
 ready (cpu=8) +154ms
 [*] [spray] finding futex collisions...
