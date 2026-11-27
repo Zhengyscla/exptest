@@ -3,8 +3,7 @@
 > 时间：2026-11-27
 > 目标机：HONOR OXF-AN00（`HWOXF` / kirin990），HarmonyOS `4.2.0.125(C00E121R5P4)`
 > 内核：`5.10.43 #1 SMP PREEMPT Tue Sep 22 09:21:41 CST 2026`
-> 工具：LSPosed/LSPrivilege（商店名「月虹提权助手」1.7.1 / native 1.2+602）
-> 设备状态：测试机，可接受重启与刷机风险
+> 工具：LSPosed/LSPrivilege（GhostLock-APP）
 
 ## 一句话结论
 
