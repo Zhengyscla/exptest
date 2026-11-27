@@ -1,3 +1,5 @@
+# 这个文件来自于GhostLock仓库提交的PR
+
 5.10.209-android12-9 matisse (Redmi K50 Pro)：
 ————————————————————
 pselect route setup shift=-2 ... out0=ffffff8002a41b98
